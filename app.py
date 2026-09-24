@@ -263,15 +263,11 @@ def main() -> None:
         messages = build_messages(lab_key, clipped)
 
         with st.chat_message("assistant"):
-            box = st.empty()
-            acc = ""
             try:
                 stream = stream_chat(backend, messages, temperature=temperature)
-                for chunk in stream:
-                    delta = chunk.choices[0].delta.content or ""
-                    acc += delta
-                    box.markdown(acc + "▌")
-                box.markdown(acc or "_Empty reply — check the model id and that a model is loaded._")
+                acc = st.write_stream(stream)
+                if not acc:
+                    st.markdown("_Empty reply — check the model id and that a model is loaded._")
             except Exception as exc:  # noqa: BLE001
                 acc = (
                     "**Could not reach the model.**\n\n"

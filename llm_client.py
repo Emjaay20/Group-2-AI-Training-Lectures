@@ -50,7 +50,7 @@ def stream_chat(
     backend: Backend,
     messages: list[dict],
     temperature: float = 0.6,
-    max_tokens: int = 900,
+    max_tokens: int = 4096,
 ):
     client = make_client(backend)
     return client.chat.completions.create(
