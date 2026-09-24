@@ -229,7 +229,11 @@ def main() -> None:
 
     # Empty State for Starter Questions
     if not st.session_state.messages:
-        st.markdown("<h3 style='text-align: center; margin-top: 2rem; color: #94a3b8;'>Try asking...</h3>", unsafe_allow_html=True)
+        st.info(
+            "**👋 Welcome! How to use:** Open the sidebar, click on **⚙️ Advanced Settings**, and select the **Cloud · Groq** engine if you are online. "
+            "Then, select a **Lab Focus** to start exploring the course material."
+        )
+        st.markdown("<h3 style='text-align: center; margin-top: 1.5rem; color: #94a3b8;'>Try asking...</h3>", unsafe_allow_html=True)
         cols = st.columns(len(STARTERS.get(lab_key, STARTERS["all"])))
         for idx, q in enumerate(STARTERS.get(lab_key, STARTERS["all"])):
             with cols[idx]:
