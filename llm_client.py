@@ -10,7 +10,7 @@ from openai import OpenAI
 LMSTUDIO_BASE = os.environ.get("LMSTUDIO_BASE_URL", "http://127.0.0.1:1234/v1")
 GROQ_BASE = os.environ.get("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 DEFAULT_LOCAL_MODEL = os.environ.get("LOCAL_MODEL", "gemma-4-e4b")
-DEFAULT_GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
+DEFAULT_GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-20b")
 
 
 @dataclass
